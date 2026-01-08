@@ -1,18 +1,17 @@
 #include <iostream>
 using namespace std;
 int game(int maxnum);
-int guessAmount = 0;
 int main()
 {
 
-    game(20);
+    int guessAmount = game(20);
     cout << "Arvauksia oli " << guessAmount << endl;
     return 0;
 }
 
 int game(int maxnum)
 {
-
+    int guesses = 0;
     int guess = 0;
     srand(time(0));
     int randomNumber = rand() % maxnum + 1;
@@ -21,7 +20,7 @@ int game(int maxnum)
     {
 
         cin >> guess;
-        guessAmount++;
+        guesses++;
         if(guess > randomNumber)
         {
             cout << "luku on pienempi" << endl;
@@ -33,5 +32,5 @@ int game(int maxnum)
 
     }
     cout << "oikea vastaus"<< endl;
-    return guessAmount;
+    return guesses;
 }
